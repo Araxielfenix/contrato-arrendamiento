@@ -405,7 +405,7 @@ function drawRichParagraph(
 export default function Home() {
 	const [formData, setFormData] = useState<ContractData>(initialState);
 	const [clauses, setClauses] = useState<ClauseConfig[]>(defaultClauses);
-	const [paperSize, setPaperSize] = useState<"a4" | "a3">("a4");
+	const [paperSize, setPaperSize] = useState<"a4" | "a3">("a3");
 	const [theme, setTheme] = useState<ThemePreference>("system");
 	const [activeTab, setActiveTab] = useState<"form" | "clauses">("form");
 	const [status, setStatus] = useState("Listo para empezar");
