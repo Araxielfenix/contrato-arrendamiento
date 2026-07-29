@@ -260,7 +260,7 @@ function formatDateLong(dia: string, mes: string, anio: string): string {
 
 // ─── Rich Text Parsing & PDF Layout Engine ────────────────────────────────────
 
-type RichSpan = { text: string; bold?: boolean };
+type RichSpan = { text: string; bold?: boolean; newline?: boolean };
 
 function parseClauseToSpans(
 	title: string,
@@ -277,10 +277,15 @@ function parseClauseToSpans(
 		spans.push({ text: `${title.trim()} `, bold: true });
 	}
 
-	const parts = processed.split(/(\*\*.*?\*\*)/g);
+	// Dividimos por saltos de línea \n Y por marcas **negrita**
+	const parts = processed.split(/(\*\*.*?\*\*|\n)/g);
 	for (const part of parts) {
-		if (!part) continue;
-		if (part.startsWith("**") && part.endsWith("**")) {
+		if (part === "\n") {
+			// Salto de línea explícito
+			spans.push({ text: "", newline: true });
+		} else if (!part) {
+			continue;
+		} else if (part.startsWith("**") && part.endsWith("**")) {
 			spans.push({ text: part.slice(2, -2), bold: true });
 		} else {
 			spans.push({ text: part, bold: false });
@@ -302,10 +307,15 @@ function drawRichParagraph(
 ): number {
 	doc.setFontSize(fontSize);
 
-	type Token = { text: string; bold: boolean; width: number };
+	type Token = { text: string; bold: boolean; width: number; newline?: boolean };
 	const tokens: Token[] = [];
 
 	for (const span of spans) {
+		if (span.newline) {
+			// Token especial que fuerza salto de línea
+			tokens.push({ text: "", bold: false, width: 0, newline: true });
+			continue;
+		}
 		doc.setFont("helvetica", span.bold ? "bold" : "normal");
 		const parts = span.text.split(/(\s+)/);
 		for (const part of parts) {
@@ -320,6 +330,20 @@ function drawRichParagraph(
 	let currentLineWidth = 0;
 
 	for (const token of tokens) {
+		// Salto de línea forzado (usuario presionó Enter en el editor)
+		if (token.newline) {
+			while (
+				currentLine.length > 0 &&
+				/^\s+$/.test(currentLine[currentLine.length - 1].text)
+			) {
+				currentLine.pop();
+			}
+			lines.push(currentLine);
+			currentLine = [];
+			currentLineWidth = 0;
+			continue;
+		}
+
 		const isSpace = /^\s+$/.test(token.text);
 		if (currentLine.length === 0 && isSpace) continue;
 
