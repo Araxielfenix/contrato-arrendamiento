@@ -13,9 +13,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Contrato de Arrendamiento",
+	title: "Contrato de Arrendamiento Residencial",
 	description:
-		"Generador moderno de contratos de arrendamiento",
+		"Genera, personaliza y exporta tu contrato de arrendamiento en PDF listo para firmar — directo desde el navegador, sin instalar nada.",
+	metadataBase: new URL(
+		"https://araxielfenix.github.io/contrato-arrendamiento",
+	),
+	openGraph: {
+		title: "Contrato de Arrendamiento Residencial",
+		description:
+			"Genera, personaliza y exporta tu contrato de arrendamiento en PDF listo para firmar — directo desde el navegador, sin instalar nada.",
+		url: "https://araxielfenix.github.io/contrato-arrendamiento",
+		siteName: "Generador de Contrato de Arrendamiento",
+		images: [
+			{
+				url: "/og-image.svg",
+				width: 1200,
+				height: 630,
+				alt: "Generador de Contrato de Arrendamiento Residencial",
+			},
+		],
+		locale: "es_MX",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Contrato de Arrendamiento Residencial",
+		description:
+			"Genera, personaliza y exporta tu contrato de arrendamiento en PDF listo para firmar.",
+		images: ["/og-image.svg"],
+	},
 };
 
 export default function RootLayout({

@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#090d16"/>
+      <stop offset="100%" style="stop-color:#0f2d1f"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.06"/>
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.02"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.05"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Glow circle top-left -->
+  <circle cx="100" cy="100" r="300" fill="#059669" opacity="0.07"/>
+  <!-- Glow circle bottom-right -->
+  <circle cx="1100" cy="530" r="250" fill="#059669" opacity="0.05"/>
+
+  <!-- Main card -->
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="url(#card)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.08"/>
+
+  <!-- Document icon group (left) -->
+  <g transform="translate(100, 155)">
+    <!-- Doc shadow -->
+    <rect x="18" y="18" width="160" height="200" rx="12" fill="#059669" opacity="0.15"/>
+    <!-- Doc body -->
+    <rect width="160" height="200" rx="12" fill="#0f172a" stroke="#1e4d3a" stroke-width="1.5"/>
+    <!-- Doc lines -->
+    <rect x="22" y="50" width="116" height="7" rx="3.5" fill="#334155"/>
+    <rect x="22" y="68" width="100" height="7" rx="3.5" fill="#334155"/>
+    <rect x="22" y="86" width="110" height="7" rx="3.5" fill="#334155"/>
+    <rect x="22" y="110" width="95" height="7" rx="3.5" fill="#1e4d3a"/>
+    <rect x="22" y="128" width="116" height="7" rx="3.5" fill="#1e4d3a"/>
+    <rect x="22" y="146" width="80" height="7" rx="3.5" fill="#1e4d3a"/>
+    <!-- Signature lines -->
+    <rect x="22" y="172" width="50" height="2" rx="1" fill="#475569"/>
+    <rect x="90" y="172" width="50" height="2" rx="1" fill="#475569"/>
+    <!-- Dog-ear fold -->
+    <path d="M 128 0 L 160 32 L 128 32 Z" fill="#1e3a2a"/>
+    <path d="M 128 0 L 160 32" fill="none" stroke="#0f172a" stroke-width="1"/>
+    <!-- Green checkmark badge -->
+    <circle cx="130" cy="170" r="22" fill="url(#badge)" stroke="#0f172a" stroke-width="3"/>
+    <polyline points="120,170 127,178 142,160" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Divider line -->
+  <line x1="340" y1="130" x2="340" y2="500" stroke="#ffffff" stroke-width="1" stroke-opacity="0.08"/>
+
+  <!-- Right text content -->
+  <!-- Green badge -->
+  <rect x="380" y="148" width="270" height="34" rx="17" fill="#059669" fill-opacity="0.15" stroke="#059669" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="515" y="171" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#34d399" text-anchor="middle" letter-spacing="2">GENERADOR LEGAL</text>
+
+  <!-- Main title -->
+  <text x="380" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" fill="#ffffff" letter-spacing="-1">Contrato de</text>
+  <text x="380" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="800" fill="#ffffff" letter-spacing="-1">Arrendamiento</text>
+  <text x="380" y="358" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="700" fill="#34d399" letter-spacing="-0.5">Residencial</text>
+
+  <!-- Subtitle -->
+  <text x="380" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="19" fill="#94a3b8">Genera, personaliza y exporta tu contrato en PDF</text>
+  <text x="380" y="436" font-family="system-ui, -apple-system, sans-serif" font-size="19" fill="#94a3b8">listo para firmar — directo desde el navegador.</text>
+
+  <!-- Feature pills -->
+  <g transform="translate(380, 468)">
+    <!-- PDF pill -->
+    <rect width="120" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="60" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">📄 Exportar PDF</text>
+    <!-- A3/A4 pill -->
+    <rect x="130" width="100" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="180" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">📑 A3 / A4</text>
+    <!-- WhatsApp pill -->
+    <rect x="240" width="140" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="310" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#cbd5e1" text-anchor="middle">💬 WhatsApp</text>
+  </g>
+
+  <!-- URL bottom -->
+  <text x="600" y="590" font-family="system-ui, -apple-system, monospace" font-size="14" fill="#475569" text-anchor="middle">araxielfenix.github.io/contrato-arrendamiento</text>
+</svg>
